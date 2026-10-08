@@ -66,12 +66,12 @@ a { color: var(--wine); }
 .env-rose--br { width: min(50vw, 300px); bottom: -8%; right: -12%; transform: rotate(-12deg); }
 .env-card { position: relative; text-align: center; max-width: 400px; transition: transform 1s var(--ease), opacity .8s ease; }
 .seal {
-  width: 116px; height: 116px; margin: 0 auto 18px; border-radius: 50%;
+  width: 150px; height: 150px; margin: 0 auto 18px; border-radius: 50%;
   border: 2.5px solid var(--gold);
   box-shadow: 0 0 0 6px #fff, 0 0 0 7.5px rgba(184, 137, 43, .45), 0 10px 30px rgba(142, 47, 69, .16);
   overflow: hidden; display: grid; place-items: center;
 }
-.seal img { width: 130%; max-width: none; }
+.seal img { width: 100%; height: 100%; object-fit: cover; }
 .env-kicker { font: 700 18px/1.3 var(--f-serif); letter-spacing: .2em; text-transform: uppercase; color: var(--gold-ink); }
 .env-title { font: 400 48px/1.08 var(--f-script); color: var(--wine); margin: 10px 0 8px; }
 .env-sub { font: 600 21px/1.3 var(--f-serif); color: var(--ink-soft); margin-bottom: 26px; }
