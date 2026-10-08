@@ -75,7 +75,7 @@
     body.classList.add("is-open");
     body.classList.remove("locked");
     playVideo();
-    startMusic();
+    showMusic();
     if (!reduceMotion) timers.push(setTimeout(startPetals, 4500));
     timers.push(setTimeout(finishIntro, reduceMotion ? 0 : INTRO_MS));
     window.scrollTo(0, 0);
@@ -244,34 +244,41 @@
     mo.observe(mapBox);
   } else { enableMap(); }
 
-  /* ---------- Música de fondo: tonada «Víspera» del Mozo Danza, siempre encendida ---------- */
-  var widget = null, widgetReady = false, wantMusic = false, playing = false;
-  if (window.SC && window.SC.Widget) {
-    widget = window.SC.Widget(document.getElementById("scPlayer"));
-    widget.bind(window.SC.Widget.Events.READY, function () {
-      widgetReady = true;
-      widget.setVolume(45);
-      if (wantMusic) widget.play();
-    });
-    widget.bind(window.SC.Widget.Events.PLAY, function () { playing = true; });
-    widget.bind(window.SC.Widget.Events.PAUSE, function () { playing = false; });
-    widget.bind(window.SC.Widget.Events.FINISH, function () { widget.seekTo(0); widget.play(); });
+  /* ---------- Música de fondo ----------
+     El toque en «Abrir invitación» es el permiso que exige el navegador para sonar:
+     la música arranca ahí y sigue en bucle hasta que el invitado se va. */
+  var music = document.getElementById("bgMusic");
+  if (!music) { music = { paused: true, play: function () {}, pause: function () {}, addEventListener: function () {} }; }
+  var pill = document.getElementById("musicPill") || document.createElement("button");
+  var pillText = document.getElementById("musicPillText");
+  var userPaused = false;
+  music.volume = 0.55;
+  function setPill() {
+    var on = !music.paused;
+    pill.setAttribute("aria-pressed", on ? "true" : "false");
+    pillText.textContent = on ? "Música: sí" : "Música: no";
   }
-  // El navegador solo deja sonar audio después de un toque: se arranca al abrir la invitación
-  // y, si no alcanzó, con cualquier toque siguiente.
-  function startMusic() {
-    if (!widget) return;
-    wantMusic = true;
-    if (widgetReady) widget.play();
+  function playMusic() {
+    var p = music.play();
+    if (p && p.catch) p.catch(function () { /* se reintenta con el siguiente toque */ });
   }
-  // Primer toque en cualquier parte (también en el sobre) = la música empieza.
-  document.addEventListener("pointerdown", function () {
-    wantMusic = true;
-    if (widgetReady && !playing) widget.play();
+  function showMusic() {
+    if (!document.getElementById("bgMusic")) return;
+    playMusic();
+    body.classList.add("music-pill-on");
+  }
+  music.addEventListener("play", setPill);
+  music.addEventListener("pause", setPill);
+  // Si el navegador no dejó sonar al abrir, el siguiente toque en la página la arranca.
+  document.addEventListener("pointerdown", function (e) {
+    if (opened && music.paused && !userPaused && !e.target.closest("#musicPill")) playMusic();
+  });
+  pill.addEventListener("click", function () {
+    if (music.paused) { userPaused = false; playMusic(); } else { userPaused = true; music.pause(); }
   });
   document.addEventListener("visibilitychange", function () {
-    if (!widget || !wantMusic) return;
-    if (document.hidden) widget.pause(); else widget.play();
+    if (!opened || userPaused) return;
+    if (document.hidden) music.pause(); else playMusic();
   });
 
   /* ---------- Compartir ---------- */

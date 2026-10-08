@@ -43,10 +43,13 @@
   </div>
 
 
-  <div class="sc-hidden" aria-hidden="true">
-    <iframe id="scPlayer" title="Tonada de víspera del Mozo Danza de San Marcos" width="320" height="120" tabindex="-1" allow="autoplay; encrypted-media" frameborder="no"
-      src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1126123102&auto_play=false&visual=false&hide_related=true&show_comments=false&show_teaser=false"></iframe>
-  </div>
+  <!-- Música de fondo: al recibir el audio del Mozo Danza, guardarlo en assets/audio/musica.m4a y descomentar:
+  <audio id="bgMusic" src="assets/audio/musica.m4a" loop preload="auto"></audio>
+  <button class="music-pill" id="musicPill" type="button" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" fill="currentColor"/><circle cx="17" cy="16" r="3" fill="currentColor"/></svg>
+    <span id="musicPillText">Música</span>
+  </button>
+  -->
 
   <main id="main">
 
@@ -180,10 +183,9 @@
   </main>
 
   <footer class="footer">
-    Foto de Mamá Pillicha: Ministerio de Cultura del Perú · Música: «Víspera», Mozo Danza de San Marcos, pincullo y caja de Martín Rafael Rivera Blas (Archivo Sonoro DPI – Ministerio de Cultura) · Rosas: P.-J. Redouté (dominio público) · Hecho por Vehemente
+    Foto de Mamá Pillicha: Ministerio de Cultura del Perú · Rosas: P.-J. Redouté (dominio público) · Hecho por Vehemente
   </footer>
 
-  <script src="https://w.soundcloud.com/player/api.js"></script>
   <script src="app.js" defer></script>
 </body>
 </html>

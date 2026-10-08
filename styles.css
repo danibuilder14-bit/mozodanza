@@ -81,7 +81,19 @@ body.is-open .env-rose--br { transform: translate(40%, 40%) rotate(10deg); opaci
 body.is-open .env-card { transform: scale(.94) translateY(-10px); opacity: 0; }
 
 /* ---------- Música ---------- */
-.sc-hidden { position: fixed; left: 0; bottom: 0; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none; }
+.music-pill {
+  position: fixed; z-index: 40; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom));
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 48px; padding: 8px 16px; border-radius: 999px;
+  border: 1.5px solid var(--wine); background: #fff; color: var(--wine);
+  font: 700 16px var(--f-sans); cursor: pointer;
+  box-shadow: 0 4px 16px rgba(142, 47, 69, .2);
+  opacity: 0; transform: translateY(20px); visibility: hidden;
+  transition: opacity .4s ease, transform .4s var(--ease), visibility 0s .4s;
+}
+.music-pill svg { width: 20px; height: 20px; }
+.music-pill[aria-pressed="true"] { background: var(--wine); color: #fff; }
+body.music-pill-on .music-pill { opacity: 1; transform: none; visibility: visible; transition-delay: 0s; }
 
 /* ---------- Caras ---------- */
 .face { position: relative; min-height: 100svh; padding: 52px 16px 44px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
