@@ -100,21 +100,21 @@ body.skip .intro-el, body.skip .arc-text tspan, body.skip .dancer-wrap { transit
 .corner { position: absolute; pointer-events: none; z-index: 0; }
 .corner--tl { width: min(28vw, 220px); top: -72px; left: -62px; transform: rotate(160deg); }
 .corner--tr { width: min(28vw, 220px); top: -72px; right: -62px; transform: rotate(-160deg) scaleX(-1); }
-.petals { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 6; pointer-events: none; }
+.petals { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
 
-.stage { position: relative; z-index: 2; width: min(100%, 440px, calc((100svh - 320px) * 400 / 492)); min-width: 300px; aspect-ratio: 400 / 492; }
+.stage { position: relative; z-index: 2; width: min(100%, 420px, calc((100svh - 400px) * 400 / 350)); min-width: 290px; aspect-ratio: 400 / 350; }
 .arc-title { position: absolute; inset: 0 0 auto 0; width: 100%; height: auto; overflow: visible; z-index: 5; pointer-events: none; }
 .arc-text { font: 700 23.5px var(--f-serif); letter-spacing: 1.2px; fill: var(--wine); paint-order: stroke; stroke: #fff; stroke-width: 5px; stroke-linejoin: round; }
 .arc-text tspan { fill-opacity: 0; stroke-opacity: 0; transition: fill-opacity .5s ease, stroke-opacity .5s ease; }
 body.is-open .arc-text tspan { fill-opacity: 1; stroke-opacity: 1; }
 
-.arch { position: absolute; margin: 0; left: 24%; top: 18%; width: 52%; aspect-ratio: 534 / 640; transform-origin: 50% 80%; z-index: 2; }
+.arch { position: absolute; margin: 0; left: 24%; top: 20.5%; width: 52%; aspect-ratio: 534 / 640; transform-origin: 50% 80%; z-index: 2; }
 body:not(.is-open) .arch { transform: scale(.92) translateY(14px); }
 .arch-frame {
   position: absolute; inset: 0; overflow: hidden;
   border-radius: 999px 999px 16px 16px;
   border: 2.5px solid var(--gold);
-  box-shadow: 0 0 0 5px #fff, 0 0 0 6.5px rgba(184, 137, 43, .4), 0 14px 34px rgba(142, 47, 69, .18);
+  box-shadow: 0 0 0 5px #fff, 0 0 0 6.5px rgba(184, 137, 43, .4), 0 10px 22px rgba(142, 47, 69, .14);
   background: #fbf3f5;
 }
 .arch-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
@@ -128,21 +128,25 @@ body.skip .arch-glow { transition-delay: 0s; animation-delay: 0s; }
 body.is-open .arch-roses img { opacity: 1; scale: 1; }
 body.skip .arch-roses img { transition-delay: 0s; transition-duration: .35s; }
 
-/* Danzante (video fotorrealista sobre blanco) */
+/* Fila: capitán a la izquierda, danzante a la derecha (sin superponerse a la Virgen) */
+.host-row {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: minmax(0, 1fr) 36%; align-items: center; gap: 10px;
+  width: min(100%, 420px); margin-top: 26px;
+}
+.host-who { text-align: center; text-wrap: balance; min-width: 0; }
 .dancer-wrap {
-  position: absolute; z-index: 4;
-  right: 0; bottom: 0; width: 40%;
+  position: relative; width: 100%; aspect-ratio: 480 / 810;
   mix-blend-mode: multiply;
-  aspect-ratio: 480 / 810;
-  opacity: 0; transform: translateX(40%);
+  opacity: 0; transform: translateX(30%);
   transition: opacity 1.4s ease 7s, transform 2.4s var(--ease) 7s;
 }
 body.is-open .dancer-wrap { opacity: 1; transform: none; }
 .dancer-video { width: 100%; height: 100%; object-fit: contain; }
 
-.host { position: relative; z-index: 2; text-align: center; margin-top: 8px; text-wrap: balance; }
-.host-kicker { font: 700 18px/1.3 var(--f-serif); letter-spacing: .06em; text-transform: uppercase; color: var(--gold-ink); }
-.host-name { font: 400 clamp(33px, 10vw, 42px)/1.15 var(--f-script); color: var(--wine); margin-top: 6px; }
+.host { position: relative; z-index: 2; text-align: center; margin-top: 4px; text-wrap: balance; }
+.host-kicker { font: 700 16px/1.3 var(--f-serif); letter-spacing: .06em; text-transform: uppercase; color: var(--gold-ink); }
+.host-name { font: 400 clamp(30px, 8.6vw, 40px)/1.1 var(--f-script); color: var(--wine); margin-top: 6px; }
 .host-family { font: 400 28px/1.1 var(--f-script); color: var(--wine); }
 .when { display: inline-block; margin-top: 14px; padding: 8px 16px; border-radius: 999px; background: var(--rose-soft); border: 1px solid #e7bcc6; color: var(--ink); font-size: clamp(15px, 4.4vw, 17px); }
 .countdown { margin-top: 10px; font-size: 17px; color: var(--ink); }
