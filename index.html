@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Mozodanza · Víspera de Mamá Pillicha</title>
-  <meta name="description" content="El capitán de la cuadrilla del Mozo Danza, Daniel Reeves Córdova y familia, le invita a la víspera de la fiesta de la Virgen Peregrina «Mamá Pillicha». Viernes 23 de octubre de 2026, Huaraz.">
+  <title>Mozodanza · Fiesta de Mamá Pillicha</title>
+  <meta name="description" content="El capitán de la cuadrilla del Mozo Danza, Daniel Reeves Córdova y familia, le invita a la fiesta de la Virgen Peregrina «Mamá Pillicha» en Huaraz: víspera el viernes 23 y día central el sábado 24 de octubre de 2026.">
   <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="light">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_PE">
-  <meta property="og:title" content="Invitación · Víspera de Mamá Pillicha">
-  <meta property="og:description" content="Mozo Danza · Viernes 23 de octubre de 2026 · Huaraz. Capitán Daniel Reeves Córdova y familia.">
+  <meta property="og:title" content="Invitación · Fiesta de Mamá Pillicha · Mozo Danza">
+  <meta property="og:description" content="Víspera: viernes 23 · Día central: sábado 24 de octubre de 2026 · Huaraz. Capitán Daniel Reeves Córdova y familia.">
   <meta property="og:url" content="https://mozodanza.vercel.app/">
   <meta property="og:image" content="https://mozodanza.vercel.app/assets/img/og.jpg">
   <meta property="og:image:width" content="1200">
@@ -86,9 +86,9 @@
       </div>
 
       <div class="host">
-        <p class="when intro-el" style="--d:9.8s"><strong>Víspera</strong> · Viernes 23 de octubre · Huaraz</p>
+        <p class="when intro-el" style="--d:9.8s"><strong>Víspera</strong> · Viernes 23 de octubre<br><strong>Día central</strong> · Sábado 24 · Huaraz</p>
         <p class="countdown intro-el" style="--d:10.4s" id="countdown" aria-live="polite"></p>
-        <a class="scroll-hint intro-el" style="--d:11s" href="#invitacion" aria-label="Ver la invitación y el programa">
+        <a class="scroll-hint intro-el" style="--d:11s" href="#invitacion" aria-label="Ver la invitación y los programas">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -105,6 +105,7 @@
         <div class="divider" aria-hidden="true"><span></span><img src="assets/img/rosa-boton.webp" alt=""><span></span></div>
 
         <h2 class="face-title face-title--sm">Programa de víspera</h2>
+        <p class="program-date">Viernes 23 de octubre de 2026</p>
         <ol class="program">
           <li><span class="p-time">10:00 am</span><span class="p-what">Recepción de los cajeros del Mozo Danza <strong>«Hermanos Anaya»</strong></span></li>
           <li><span class="p-time">12:30 pm</span><span class="p-what">Almuerzo en casa del capitán</span></li>
@@ -115,7 +116,29 @@
       </div>
     </section>
 
-    <!-- ===== Cara 3 · Lugares y cierre ===== -->
+    <!-- ===== Cara 3 · Día central ===== -->
+    <section class="face central reveal" id="dia-central" aria-label="Día central">
+      <img class="corner corner--tl" src="assets/img/rosa-ramo.webp" alt="" aria-hidden="true">
+      <img class="corner corner--tr" src="assets/img/rosa-ramo.webp" alt="" aria-hidden="true">
+      <div class="face-inner">
+        <p class="central-kicker">Día central</p>
+        <div class="central-date">
+          <span class="cd-day">Sábado</span>
+          <span class="cd-num">24</span>
+          <span class="cd-month">de octubre de 2026</span>
+        </div>
+
+        <div class="divider" aria-hidden="true"><span></span><img src="assets/img/rosa-boton.webp" alt=""><span></span></div>
+
+        <ol class="program program--central">
+          <li><span class="p-time">11:00 am</span><span class="p-what"><strong>Misa en honor a la Virgen</strong><em>Sagrario de San Sebastián</em></span></li>
+          <li><span class="p-time">12:00 pm</span><span class="p-what"><strong>Procesión de la sagrada imagen</strong><em>Por las principales calles de la ciudad de Huaraz</em></span></li>
+          <li><span class="p-time">2:00 pm</span><span class="p-what"><strong>Compartir y baile general</strong><em>Ingreso al local designado</em></span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Cara 4 · Lugares y cierre ===== -->
     <section class="face reveal" id="lugares">
       <img class="corner corner--bl" src="assets/img/rosa-agatha.webp" alt="" aria-hidden="true">
       <img class="corner corner--br" src="assets/img/rosa-agatha.webp" alt="" aria-hidden="true">
@@ -129,11 +152,11 @@
         <div class="tabs" role="tablist" aria-label="Lugares">
           <button class="tab is-active" role="tab" aria-selected="true" data-place="casa" type="button">
             <svg class="tab-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></svg>
-            Casa del capitán<small>12:30 pm · 6:00 pm</small>
+            Casa del capitán<small>Vie 12:30 pm · 6:00 pm</small>
           </button>
           <button class="tab" role="tab" aria-selected="false" data-place="sagrario" type="button">
             <svg class="tab-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></svg>
-            Sagrario San Sebastián<small>7:00 pm</small>
+            Sagrario San Sebastián<small>Vie 7:00 pm · Sáb 11:00 am</small>
           </button>
         </div>
 

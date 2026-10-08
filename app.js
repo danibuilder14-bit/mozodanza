@@ -4,7 +4,7 @@
 
   var CANONICAL = "https://mozodanza.vercel.app/";
   var EVENT_START = new Date("2026-10-23T10:00:00-05:00");
-  var EVENT_END = new Date("2026-10-24T00:00:00-05:00");
+  var EVENT_END = new Date("2026-10-25T00:00:00-05:00");
   var INTRO_MS = 12000;
 
   var PLACES = {
@@ -277,8 +277,8 @@
   /* ---------- Compartir ---------- */
   var local = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) || !/^https?:/.test(location.protocol);
   var shareUrl = local ? CANONICAL : location.origin + location.pathname;
-  var shareText = "Invitación a la víspera de la fiesta de Mamá Pillicha · Mozo Danza\n" +
-    "Viernes 23 de octubre de 2026 · Huaraz\n" +
+  var shareText = "Invitación a la fiesta de Mamá Pillicha · Mozo Danza\n" +
+    "Víspera: viernes 23 · Día central: sábado 24 de octubre de 2026 · Huaraz\n" +
     "Capitán Daniel Reeves Córdova y familia\n" + shareUrl;
   document.getElementById("waBtn").href = "https://wa.me/?text=" + encodeURIComponent(shareText);
 })();
