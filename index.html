@@ -43,6 +43,11 @@
   </div>
 
 
+  <div class="sc-hidden" aria-hidden="true">
+    <iframe id="scPlayer" title="Tonada de víspera del Mozo Danza de San Marcos" width="320" height="120" tabindex="-1" allow="autoplay; encrypted-media" frameborder="no"
+      src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1126123102&auto_play=false&visual=false&hide_related=true&show_comments=false&show_teaser=false"></iframe>
+  </div>
+
   <main id="main">
 
     <!-- ===== Cara 1 · Portada ===== -->
@@ -53,14 +58,14 @@
 
       <div class="stage">
         <svg class="arc-title" viewBox="0 0 400 270" role="img" aria-label="Festividad en honor a Mamá Pillicha">
-          <defs><path id="arcPath" d="M38,250 A170,170 0 1 1 362,250"/></defs>
+          <defs><path id="arcPath" d="M24,206 A176,176 0 0 1 376,206"/></defs>
           <text class="arc-text"><textPath href="#arcPath" startOffset="50%" text-anchor="middle" id="arcTextPath">FESTIVIDAD EN HONOR A MAMÁ PILLICHA</textPath></text>
         </svg>
 
         <figure class="arch intro-el" style="--d:4s">
           <div class="arch-glow" aria-hidden="true"></div>
           <div class="arch-frame">
-            <img src="assets/img/mama-pillicha.webp" alt="Imagen de la Virgen Peregrina, Mamá Pillicha, con el Niño, ambos con sombrero" width="534" height="576">
+            <img src="assets/img/mama-pillicha.webp" alt="Imagen de la Virgen Peregrina, Mamá Pillicha, con el Niño, ambos con sombrero, en su arco de rosas" width="900" height="1078">
           </div>
           <div class="arch-roses" aria-hidden="true" id="archRoses"></div>
         </figure>
@@ -111,12 +116,18 @@
       <img class="corner corner--br" src="assets/img/rosa-agatha.webp" alt="" aria-hidden="true">
       <div class="face-inner">
         <h2 class="face-title">¿Dónde?</h2>
+        <p class="tabs-hint">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v14M6 12l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Toque un lugar para ver su mapa
+        </p>
 
         <div class="tabs" role="tablist" aria-label="Lugares">
           <button class="tab is-active" role="tab" aria-selected="true" data-place="casa" type="button">
+            <svg class="tab-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></svg>
             Casa del capitán<small>12:30 pm · 6:00 pm</small>
           </button>
           <button class="tab" role="tab" aria-selected="false" data-place="sagrario" type="button">
+            <svg class="tab-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></svg>
             Sagrario San Sebastián<small>7:00 pm</small>
           </button>
         </div>
@@ -141,9 +152,10 @@
   </main>
 
   <footer class="footer">
-    Rosas: P.-J. Redouté (dominio público) · Hecho por Vehemente
+    Foto de Mamá Pillicha: Ministerio de Cultura del Perú · Música: «Víspera», Mozo Danza de San Marcos, pincullo y caja de Martín Rafael Rivera Blas (Archivo Sonoro DPI – Ministerio de Cultura) · Rosas: P.-J. Redouté (dominio público) · Hecho por Vehemente
   </footer>
 
+  <script src="https://w.soundcloud.com/player/api.js"></script>
   <script src="app.js" defer></script>
 </body>
 </html>

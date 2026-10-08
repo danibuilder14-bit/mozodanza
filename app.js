@@ -41,12 +41,12 @@
   /* ---------- Arco de rosas alrededor de la Virgen (4.2 s → 6 s) ---------- */
   var roses = document.getElementById("archRoses");
   var spots = [];
-  [92, 72, 53].forEach(function (y) { spots.push([-5, y]); });
+  [90, 72, 54].forEach(function (y) { spots.push([-2, y]); });
   [165, 135, 105, 75, 45, 15].forEach(function (deg) {
     var r = deg * Math.PI / 180;
-    spots.push([50 + 53 * Math.cos(r), 42 - 45 * Math.sin(r)]);
+    spots.push([50 + 50 * Math.cos(r), 42 - 41 * Math.sin(r)]);
   });
-  [53, 72].forEach(function (y) { spots.push([105, y]); });
+  [54, 72].forEach(function (y) { spots.push([102, y]); });
   [14, 38, 62, 86].forEach(function (x) { spots.push([x, 101]); });
   spots.forEach(function (p, idx) {
     var img = new Image();
@@ -56,7 +56,7 @@
     img.decoding = "async";
     img.style.setProperty("--x", p[0] + "%");
     img.style.setProperty("--y", p[1] + "%");
-    img.style.setProperty("--s", (big ? 18 + (idx * 7) % 4 : 13 + (idx * 5) % 3) + "%");
+    img.style.setProperty("--s", (big ? 16 + (idx * 7) % 3 : 12 + (idx * 5) % 3) + "%");
     img.style.setProperty("--r", ((idx * 47) % 60 - 30) + "deg");
     img.style.setProperty("--rd", (4.2 + idx * 0.09).toFixed(2) + "s");
     roses.appendChild(img);
@@ -75,6 +75,7 @@
     body.classList.add("is-open");
     body.classList.remove("locked");
     playVideo();
+    startMusic();
     if (!reduceMotion) timers.push(setTimeout(startPetals, 4500));
     timers.push(setTimeout(finishIntro, reduceMotion ? 0 : INTRO_MS));
     window.scrollTo(0, 0);
@@ -242,6 +243,36 @@
     }, { rootMargin: "500px 0px" });
     mo.observe(mapBox);
   } else { enableMap(); }
+
+  /* ---------- Música de fondo: tonada «Víspera» del Mozo Danza, siempre encendida ---------- */
+  var widget = null, widgetReady = false, wantMusic = false, playing = false;
+  if (window.SC && window.SC.Widget) {
+    widget = window.SC.Widget(document.getElementById("scPlayer"));
+    widget.bind(window.SC.Widget.Events.READY, function () {
+      widgetReady = true;
+      widget.setVolume(45);
+      if (wantMusic) widget.play();
+    });
+    widget.bind(window.SC.Widget.Events.PLAY, function () { playing = true; });
+    widget.bind(window.SC.Widget.Events.PAUSE, function () { playing = false; });
+    widget.bind(window.SC.Widget.Events.FINISH, function () { widget.seekTo(0); widget.play(); });
+  }
+  // El navegador solo deja sonar audio después de un toque: se arranca al abrir la invitación
+  // y, si no alcanzó, con cualquier toque siguiente.
+  function startMusic() {
+    if (!widget) return;
+    wantMusic = true;
+    if (widgetReady) widget.play();
+  }
+  // Primer toque en cualquier parte (también en el sobre) = la música empieza.
+  document.addEventListener("pointerdown", function () {
+    wantMusic = true;
+    if (widgetReady && !playing) widget.play();
+  });
+  document.addEventListener("visibilitychange", function () {
+    if (!widget || !wantMusic) return;
+    if (document.hidden) widget.pause(); else widget.play();
+  });
 
   /* ---------- Compartir ---------- */
   var local = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) || !/^https?:/.test(location.protocol);
