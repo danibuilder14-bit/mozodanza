@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  var CANONICAL = "https://danibuilder14-bit.github.io/mozodanza/";
+  var CANONICAL = "https://mozodanza.vercel.app/";
   var EVENT_START = new Date("2026-10-23T10:00:00-05:00");
   var EVENT_END = new Date("2026-10-24T00:00:00-05:00");
   var INTRO_MS = 12000;
